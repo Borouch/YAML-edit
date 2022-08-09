@@ -4,9 +4,9 @@ import { dump, load } from 'js-yaml'
 export class Frontmatter {
 
   /**
-   * YAML as list of string
+   * File lines
    */
-  private lines: string[]
+  public lines: string[]
 
   /**
    * Index of the first YAML content line
@@ -34,9 +34,7 @@ export class Frontmatter {
   public readonly set = (key: string, value: any): void =>
     (this.contents[key] = value)
 
-  public readonly overwrite = (): void => {
-    const replacer = (k: string, v: any): any =>
-      window.moment.isMoment(v) ? v.endOf('day').format('YYYY-MM-DD') : v
+  public readonly overwrite = (replacer?: (k: string, v: any)): void => {
 
     const fmLines = dump(this.contents, { replacer }).trim()
 
