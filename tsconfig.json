@@ -1,4 +1,10 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*"],
+  "baseUrl": "./",
+  "paths": {
+    "tslib" : ["./node_modules/tslib/tslib.d.ts"]
+  },
   "compilerOptions": {
     "baseUrl": ".",
     "inlineSourceMap": true,
@@ -18,7 +24,4 @@
       "ES7"
     ]
   },
-  "include": [
-    "**/*.ts"
-  ]
 }
