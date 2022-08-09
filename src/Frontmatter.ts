@@ -34,7 +34,7 @@ export class Frontmatter {
   public readonly set = (key: string, value: any): void =>
     (this.contents[key] = value)
 
-  public readonly overwrite = (replacer?: (k: string, v: any)): void => {
+  public readonly overwrite = (replacer?: (k: string, v: any)=>any): void => {
 
     const fmLines = dump(this.contents, { replacer }).trim()
 
