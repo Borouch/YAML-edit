@@ -52,7 +52,7 @@ export class Frontmatter {
   private readonly initBoundaries = (): void => {
     this.start = this.lines.findIndex(line => line === '---') + 1
     if (this.start === 0) {
-      console.debug('taskmodoro: No frontmatter found for note')
+      console.debug('YAML-edit: No frontmatter found for note')
       this.start = -1
       this.end = -1
       return
@@ -75,7 +75,7 @@ export class Frontmatter {
     const fmLines = this.lines.slice(this.start, this.end + 1).join('\n')
     const fm = load(fmLines)
     if (typeof fm === 'string' || typeof fm === 'number') {
-      throw new Error('taskmodoro: Unexpected type of frontmatter')
+      throw new Error('YAML-edit: Unexpected type of frontmatter')
     }
 
     this.contents = fm as { [k: string]: any }

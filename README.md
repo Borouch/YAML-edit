@@ -13,14 +13,18 @@ API schema:
 		file: TFile | string,
 		replacer?: (k: string, v: any) => any
 	): Promise<void>;
-  
+
 ``` 
 
 Frontmatter containts the following public methods:
 
 ```typescript
+
   contains: (key: string): boolean
   get: (key: string): any 
   set: (key: string, value: any): void
+  /**
+   * Generally there is no need to call this manually, used in @method update()
+	 */
   overwrite: (): void
 ```
