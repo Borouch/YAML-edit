@@ -42,7 +42,7 @@ export default class YamlEditapi {
 	};
 
 	private getFileFromTFileOrPath = (file: TFile | string) => {
-		let targetFile: TFile;
+		let targetFile: TFile|null = null;
 
 		if (file instanceof TFile) targetFile = file;
 

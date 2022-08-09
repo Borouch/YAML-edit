@@ -7,7 +7,7 @@ API schema:
 
   /**
 	 * Updates file frontmatter
-	 * @param replacer callback function (key, value) called recursively on each key/value in source object
+	 * @param replacer callback function (key, value) called recursively on each key/value in YAML object
 	 */
 	update: (
 		file: TFile | string,
