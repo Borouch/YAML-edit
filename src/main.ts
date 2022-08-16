@@ -1,11 +1,11 @@
 import {Plugin } from 'obsidian';
-import IYamlEdit from './IYamlEdit';
-import YamlEditapi from './YamlEditapi';
+import IYamlEditApi from './IYamlEditApi';
+import YamlEditApiExpose from './YamlEditApiExpose';
 
 export default class YamlEditPlugin extends Plugin {
-	public api: IYamlEdit | null
+	public api: IYamlEditApi | null
 	async onload(): Promise<void> {
-		this.api = new YamlEditapi(this).expose()
+		this.api = new YamlEditApiExpose(this).expose()
 	}
 
 	onunload() {
