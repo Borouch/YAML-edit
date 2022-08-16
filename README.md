@@ -1,30 +1,24 @@
 This Obsidian plugin exposes API for working with YAML frontmatter
 
-API schema:
+By accessing api object you will receive a function:
 
 ```typescript
-	getFrontmatter: (file: TFile | string): Promise<Frontmatter | null>;
-
-  /**
-	 * Updates file frontmatter
-	 * @param replacer callback function (key, value) called recursively on each key/value in YAML object
-	 */
-	update: (
-		file: TFile | string,
-		replacer?: (k: string, v: any) => any
-	): Promise<void>;
+	getYamlEdit (file: TFile | string): IYamlEdit | null 
 
 ``` 
 
-Frontmatter containts the following public methods:
+YamlEdit object has these methods:
 
 ```typescript
+	get: (key: string) => any;
+	set: (key: string, value: any) => void;
+	contains: (key: string) => boolean;
 
-  contains: (key: string): boolean
-  get: (key: string): any 
-  set: (key: string, value: any): void
-  /**
-   * Generally there is no need to call this manually, used in @method update()
+	/**
+	 * Updates file frontmatter
+	 * @param replacer callback function (key, value) called recursively on each key/value in source object
 	 */
-  overwrite: (): void
+	update: (
+		replacer?: (k: string, v: any) => any
+	) => Promise<boolean>;
 ```
