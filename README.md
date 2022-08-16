@@ -1,13 +1,12 @@
 This Obsidian plugin exposes API for working with YAML frontmatter
 
-By accessing api object you will receive a function:
+To receive yaml edit api you need to provide either file or path
 
 ```typescript
-	getYamlEdit (file: TFile | string): IYamlEdit | null 
-
+	getYamlEditApi (file: TFile | string): Promise<IYamlEdit | null> 
 ``` 
 
-YamlEdit object has these methods:
+YamlEditApi has these methods:
 
 ```typescript
 	get: (key: string) => any;
