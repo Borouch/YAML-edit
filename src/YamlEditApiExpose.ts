@@ -1,7 +1,7 @@
 import { TFile, TAbstractFile } from "obsidian";
 import YAMLEditPlugin from "./main";
 import { Frontmatter } from "./Frontmatter";
-import IYamlEdit from "./IYamlEditApi";
+import IYamlEditApi from "./IYamlEditApi";
 import { getFileFromTFileOrPath } from "./Helpers";
 import YamlEditApi from "./YamlEditApi";
 export default class YamlEditApiExpose {
@@ -11,7 +11,7 @@ export default class YamlEditApiExpose {
 		return { getYamlEditApi: this.getYamlEditApi };
 	};
 
-	private getYamlEditApi = async (file: TFile | string): Promise<IYamlEdit | null> => {
+	private getYamlEditApi = async (file: TFile | string): Promise<IYamlEditApi | null> => {
 		const targetFIle = getFileFromTFileOrPath(file, this.plugin);
 		if (file instanceof TAbstractFile) {
 			const api = new YamlEditApi(this.plugin, targetFIle!);
